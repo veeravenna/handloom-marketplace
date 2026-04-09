@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections | Handloom Marketplace</title>
+  <meta name="description" content="Browse curated handloom collections by weave, region, and everyday use.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--color-primary); z-index: 100; width: 0; transition: width 0.1s; }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <div class="scroll-progress"></div>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="20" fill="currentColor" opacity="0.1"/>
+            <path d="M8 20h24M8 12h24M8 28h24" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+          <span>Handloom Marketplace</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="collections.html">Collections</a>
+          <a href="artisan-profile.html">Artisans</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </button>
+          <a href="#" class="btn btn-secondary">Cart (0)</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Collections</h1>
+        <p>Browse by weave, region, and everyday use. Each piece tells a story of craft, community, and heritage.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="sarees">Sarees</button>
+        <button class="filter-chip" data-filter="home-textiles">Home Textiles</button>
+        <button class="filter-chip" data-filter="yardage">Yardage</button>
+        <button class="filter-chip" data-filter="stoles">Stoles & Dupattas</button>
+        <button class="filter-chip" data-filter="gifts">Gifting</button>
+      </div>
+
+      <div class="filter-bar" style="margin-top:var(--space-2);">
+        <button class="filter-chip" data-filter="telangana">Telangana</button>
+        <button class="filter-chip" data-filter="andhra">Andhra Pradesh</button>
+        <button class="filter-chip" data-filter="west-bengal">West Bengal</button>
+        <button class="filter-chip" data-filter="karnataka">Karnataka</button>
+        <button class="filter-chip" data-filter="tamil-nadu">Tamil Nadu</button>
+        <button class="filter-chip" data-filter="rajasthan">Rajasthan</button>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <div>
+            <h2>All Products</h2>
+          </div>
+          <span class="chip">120+ items</span>
+        </div>
+
+        <div class="product-grid">
+          <a href="product-detail.html" class="product-card" data-filter="sarees telangana">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Ikat</div>
+            </div>
+            <div>
+              <span class="tag">Telangana</span>
+              <h3>Ikat Cotton Saree</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Feather-light drape with geometric resist-dyed detailing.</p>
+              <div class="price">
+                <strong>₹3,450</strong>
+                <span>Ready to ship</span>
+              </div>
+            </div>
+          </a>
+
+          <article class="product-card" data-filter="yardage andhra">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Manga</div>
+            </div>
+            <div>
+              <span class="tag">Andhra Pradesh</span>
+              <h3>Mangalagiri Fabric</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Minimal stripes, soft finish, designer-friendly yardage.</p>
+              <div class="price">
+                <strong>₹980/m</strong>
+                <span>Custom cut</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="stoles west-bengal">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Jam</div>
+            </div>
+            <div>
+              <span class="tag">West Bengal</span>
+              <h3>Jamdani Stole</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Airy weave with delicate motifs for premium gifting.</p>
+              <div class="price">
+                <strong>₹1,850</strong>
+                <span>Limited batch</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="home-textiles karnataka">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Ilkal</div>
+            </div>
+            <div>
+              <span class="tag">Karnataka</span>
+              <h3>Ilkal Table Runner</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Structured weave adapted for modern home-living.</p>
+              <div class="price">
+                <strong>₹1,240</strong>
+                <span>Gift-ready</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="sarees tamil-nadu">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Kanji</div>
+            </div>
+            <div>
+              <span class="tag">Tamil Nadu</span>
+              <h3>Kanjivaram Silk Saree</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Pure silk with zari border, festival-ready.</p>
+              <div class="price">
+                <strong>₹8,500</strong>
+                <span>Made to order</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="home-textiles rajasthan">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Block</div>
+            </div>
+            <div>
+              <span class="tag">Rajasthan</span>
+              <h3>Block Print Bedspread</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Hand-blocked cotton with natural dyes.</p>
+              <div class="price">
+                <strong>₹2,200</strong>
+                <span>Ready to ship</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="yardage telangana">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Poch</div>
+            </div>
+            <div>
+              <span class="tag">Telangana</span>
+              <h3>Pochampally Yardage</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Ikat-dyed fabric by the metre for designers.</p>
+              <div class="price">
+                <strong>₹1,450/m</strong>
+                <span>Custom cut</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-filter="gifts west-bengal">
+            <div class="product-visual">
+              <div class="pattern"></div>
+              <div style="position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--color-primary);">Tant</div>
+            </div>
+            <div>
+              <span class="tag">West Bengal</span>
+              <h3>Tant Saree Gift Set</h3>
+              <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Curated set of 3 lightweight cotton sarees.</p>
+              <div class="price">
+                <strong>₹4,800</strong>
+                <span>Gift box included</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <span>&copy; 2026 Handloom Marketplace</span>
+        <div style="display:flex;gap:var(--space-4);">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
