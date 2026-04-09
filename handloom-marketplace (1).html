@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handloom Marketplace</title>
+  <meta name="description" content="Handloom Marketplace is a modern craft-first platform for discovering authentic handloom sarees, fabrics, stoles, and artisan stories." />
+  <meta property="og:title" content="Handloom Marketplace" />
+  <meta property="og:description" content="A modern marketplace for authentic handloom products and artisan stories." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@400,700&display=swap" />
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f7f3ed;
+      --color-surface: #fcfaf6;
+      --color-surface-2: #f3ede5;
+      --color-surface-offset: #ede4d9;
+      --color-border: #d8cec2;
+      --color-divider: #e5ddd2;
+      --color-text: #2c241c;
+      --color-text-muted: #6f655c;
+      --color-text-faint: #aba095;
+      --color-text-inverse: #faf6f0;
+      --color-primary: #7a4b2b;
+      --color-primary-hover: #5f391f;
+      --color-secondary: #0f6a63;
+      --color-highlight: #ead8c1;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(44,36,28,.06);
+      --shadow-md: 0 8px 24px rgba(44,36,28,.08);
+      --shadow-lg: 0 20px 48px rgba(44,36,28,.12);
+      --font-body: 'General Sans', system-ui, sans-serif;
+      --font-display: 'Zodiak', Georgia, serif;
+      --content: 1180px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] {
+      --color-bg: #171411;
+      --color-surface: #1e1a16;
+      --color-surface-2: #241f1a;
+      --color-surface-offset: #2a241f;
+      --color-border: #433a33;
+      --color-divider: #342d27;
+      --color-text: #eee5da;
+      --color-text-muted: #b7aa9c;
+      --color-text-faint: #7d7268;
+      --color-text-inverse: #1b1713;
+      --color-primary: #d49a6a;
+      --color-primary-hover: #e6ad7d;
+      --color-secondary: #64b4a9;
+      --color-highlight: #473629;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.25);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.35);
+      --shadow-lg: 0 20px 48px rgba(0,0,0,.45);
+    }
+    * ,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;cursor:pointer}
+    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:100}
+    .header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:.9rem;font-weight:700}
+    .brand-mark{width:42px;height:42px;padding:.55rem;border-radius:50%;background:var(--color-surface-2);color:var(--color-primary);box-shadow:var(--shadow-sm)}
+    .brand span{letter-spacing:.02em}
+    .nav-links{display:flex;gap:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-actions{display:flex;align-items:center;gap:.75rem}
+    .theme-toggle,.menu-btn{width:44px;height:44px;border:1px solid var(--color-border);border-radius:50%;display:grid;place-items:center;background:var(--color-surface)}
+    .menu-btn{display:none}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;padding:.85rem 1.2rem;border-radius:var(--radius-full);font-size:var(--text-sm);transition:all var(--transition)}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .btn-primary:hover{background:var(--color-primary-hover)}
+    .btn-secondary{background:var(--color-surface);border:1px solid var(--color-border)}
+    .hero{padding:clamp(3rem,7vw,6rem) 0 clamp(2.5rem,6vw,5rem)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-10);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .8rem;border-radius:var(--radius-full);background:var(--color-highlight);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.08}
+    h1{font-size:var(--text-2xl);max-width:11ch;margin:var(--space-4) 0}
+    .hero p{max-width:58ch;color:var(--color-text-muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-top:var(--space-8)}
+    .stat{padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface)}
+    .stat strong{display:block;font-size:var(--text-lg);font-family:var(--font-display)}
+    .hero-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-lg)}
+    .loom-visual{aspect-ratio:4/4.6;border-radius:calc(var(--radius-xl) - .35rem);overflow:hidden;background:linear-gradient(180deg,#eadbc8 0%, #d9b58b 100%);position:relative}
+    .threads,.threads::before,.threads::after{position:absolute;inset:0;content:""}
+    .threads{background:repeating-linear-gradient(90deg, rgba(255,255,255,.30) 0 3px, rgba(122,75,43,.10) 3px 12px)}
+    .threads::before{background:linear-gradient(135deg, rgba(15,106,99,.85), rgba(122,75,43,.15) 55%, rgba(255,255,255,.2));clip-path:polygon(8% 18%, 68% 8%, 95% 34%, 60% 92%, 18% 78%)}
+    .threads::after{inset:auto 8% 10% auto;width:48%;height:34%;border-radius:50% 50% 40% 60%;background:rgba(252,250,246,.48);backdrop-filter:blur(8px)}
+    .hero-note{margin-top:var(--space-4);padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);display:flex;justify-content:space-between;gap:1rem;font-size:var(--text-sm)}
+    .section{padding:clamp(3rem,6vw,5rem) 0}
+    .section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:var(--space-8)}
+    .section-head p{max-width:52ch;color:var(--color-text-muted)}
+    .categories{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:var(--space-4)}
+    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-sm)}
+    .feature-card{min-height:260px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .feature-card::after{content:"";position:absolute;right:-2rem;bottom:-2rem;width:140px;height:140px;border-radius:50%;background:color-mix(in srgb, var(--color-primary) 14%, transparent)}
+    .feature-card small{font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted)}
+    .feature-card h3{font-size:var(--text-xl);max-width:10ch;margin-top:var(--space-3)}
+    .feature-card p{color:var(--color-text-muted);max-width:30ch}
+    .artisans{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--space-6);align-items:stretch}
+    .story-panel{background:var(--color-secondary);color:#f5f7f5;border:none}
+    .story-panel p,.story-panel li{color:rgba(245,247,245,.82)}
+    .story-panel ul{list-style:none;display:grid;gap:var(--space-3);margin-top:var(--space-5)}
+    .story-panel li{padding-left:1rem;position:relative}
+    .story-panel li::before{content:"•";position:absolute;left:0;color:#fff3}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+    .product-card{display:flex;flex-direction:column;gap:var(--space-4)}
+    .product-visual{aspect-ratio:4/5;border-radius:var(--radius-lg);background:var(--color-surface-2);position:relative;overflow:hidden}
+    .pattern{position:absolute;inset:0;background:linear-gradient(145deg, rgba(255,255,255,.3), transparent 50%), repeating-linear-gradient(135deg, rgba(122,75,43,.18) 0 8px, rgba(15,106,99,.15) 8px 16px, rgba(255,255,255,.22) 16px 24px)}
+    .product-card h3{font-size:1.15rem;font-family:var(--font-body);font-weight:600}
+    .price{display:flex;justify-content:space-between;align-items:center;color:var(--color-text-muted);font-size:var(--text-sm)}
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+    .trust .card{padding:var(--space-5) var(--space-4)}
+    .cta{background:var(--color-primary);color:var(--color-text-inverse);border-radius:2rem;padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6);align-items:center}
+    .cta p{color:rgba(250,246,240,.78)}
+    .footer{padding:var(--space-8) 0 var(--space-10);color:var(--color-text-muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:var(--space-4);align-items:center;border-top:1px solid var(--color-divider);padding-top:var(--space-6)}
+    .chip{display:inline-flex;align-items:center;padding:.4rem .75rem;border-radius:var(--radius-full);background:color-mix(in srgb, var(--color-secondary) 12%, var(--color-surface));color:var(--color-secondary);font-size:var(--text-xs);letter-spacing:.05em;text-transform:uppercase}
+    @media (max-width: 980px){
+      .hero-grid,.artisans,.cta,.categories,.product-grid,.trust{grid-template-columns:1fr 1fr}
+      .categories .feature-card:first-child,.cta>*:first-child{grid-column:1/-1}
+    }
+    @media (max-width: 760px){
+      .nav-links,.nav-actions .btn-secondary{display:none}
+      .menu-btn{display:grid}
+      .hero-grid,.artisans,.categories,.product-grid,.trust,.cta,.hero-stats{grid-template-columns:1fr}
+      .section-head,.footer-grid{flex-direction:column;align-items:flex-start}
+      h1{max-width:12ch}
+    }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Handloom Marketplace home">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M14 18h36M14 32h36M14 46h36" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <path d="M22 12v40M42 12v40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <path d="M10 26l12-10M54 38L42 48" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>Handloom Marketplace</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#collections">Collections</a>
+        <a href="#artisans">Artisans</a>
+        <a href="#products">Featured</a>
+        <a href="#trust">Why us</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn btn-secondary" href="#artisans">Sell on platform</a>
+        <a class="btn btn-primary" href="#products">Browse products</a>
+        <button class="menu-btn" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero container" id="top">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Craft-first marketplace</div>
+          <h1>Bring authentic handloom products to a wider, digital market.</h1>
+          <p>Designed for artisan groups, cooperatives, and conscious buyers, this concept project highlights traceable sourcing, craft storytelling, curated collections, and a premium marketplace feel without losing the warmth of handmade textiles.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">Shop featured weaves</a>
+            <a class="btn btn-secondary" href="#artisans">Meet artisans</a>
+          </div>
+          <div class="hero-stats" aria-label="Marketplace summary">
+            <div class="stat"><strong>120+</strong><span>artisan clusters onboarded</span></div>
+            <div class="stat"><strong>48 hrs</strong><span>dispatch for ready-to-ship edits</span></div>
+            <div class="stat"><strong>100%</strong><span>craft origin tags on every listing</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="loom-visual" role="img" aria-label="Abstract woven textile artwork inspired by handloom threads">
+            <div class="threads"></div>
+          </div>
+          <div class="hero-note">
+            <div>
+              <div class="chip">Editor’s pick</div>
+              <strong style="display:block;margin-top:.6rem">Pochampally Ikat Revival</strong>
+            </div>
+            <div style="text-align:right">
+              <div style="color:var(--color-text-muted);font-size:var(--text-xs)">Starting at</div>
+              <strong>₹3,450</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="chip">Collections</div>
+            <h2 style="font-size:var(--text-xl);margin-top:.8rem">Browse by weave, region, and everyday use.</h2>
+          </div>
+          <p>The layout uses an editorial product grid so the marketplace feels premium, grounded, and easy to scale into categories, filters, seller pages, and story-led merchandising.</p>
+        </div>
+        <div class="categories">
+          <article class="card feature-card">
+            <div>
+              <small>Signature collection</small>
+              <h3>Sarees with heritage detail.</h3>
+            </div>
+            <p>Festival-ready silks, soft cotton sarees, and naturally dyed drapes from weaving communities across India.</p>
+          </article>
+          <article class="card feature-card">
+            <div>
+              <small>Home textiles</small>
+              <h3>Table linen and runners.</h3>
+            </div>
+            <p>Muted patterns and craft-rich textures made for modern homes and gifting collections.</p>
+          </article>
+          <article class="card feature-card">
+            <div>
+              <small>Yardage</small>
+              <h3>Fabric for designers.</h3>
+            </div>
+            <p>Material swatches, loom notes, width specs, and weave consistency for custom projects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="artisans">
+      <div class="container artisans">
+        <article class="card story-panel">
+          <div class="chip" style="background:rgba(255,255,255,.12);color:#f5f7f5">Artisan stories</div>
+          <h2 style="font-size:var(--text-xl);margin:1rem 0">A marketplace that explains the making, not just the price.</h2>
+          <p>Each product page can connect the buyer to loom type, fiber source, time spent, dye process, and the people behind the weave. That builds trust and supports better pricing for handmade work.</p>
+          <ul>
+            <li>Cluster pages with craft history and process photography.</li>
+            <li>Verified origin labels and material transparency.</li>
+            <li>Seller dashboards for stock, dispatch, and custom enquiries.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="chip">Marketplace modules</div>
+          <h3 style="font-size:var(--text-xl);margin:1rem 0 1.2rem">Built to expand into a full product.</h3>
+          <div style="display:grid;gap:1rem">
+            <div style="padding:1rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)"><strong>Buyer experience</strong><p style="color:var(--color-text-muted)">Collections, filters, wishlists, traceability, and secure checkout flows.</p></div>
+            <div style="padding:1rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)"><strong>Seller tools</strong><p style="color:var(--color-text-muted)">Upload catalogues, manage inventory, track orders, and respond to bulk requests.</p></div>
+            <div style="padding:1rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)"><strong>Story commerce</strong><p style="color:var(--color-text-muted)">Use maker notes, region tags, and editorial campaigns to raise product value.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="chip">Featured products</div>
+            <h2 style="font-size:var(--text-xl);margin-top:.8rem">Sample storefront cards for the first release.</h2>
+          </div>
+          <p>These cards show how product listings can combine premium visuals, short descriptions, region tags, and quick pricing cues without clutter.</p>
+        </div>
+        <div class="product-grid">
+          <article class="card product-card"><div class="product-visual"><div class="pattern"></div></div><div><div class="chip">Telangana</div><h3 style="margin:.8rem 0 .4rem">Ikat Cotton Saree</h3><p style="color:var(--color-text-muted)">Feather-light drape with geometric resist-dyed detailing.</p></div><div class="price"><span>₹3,450</span><span>Ready to ship</span></div></article>
+          <article class="card product-card"><div class="product-visual"><div class="pattern" style="background:linear-gradient(145deg, rgba(255,255,255,.25), transparent 50%), repeating-linear-gradient(135deg, rgba(15,106,99,.18) 0 8px, rgba(212,154,106,.18) 8px 16px, rgba(255,255,255,.18) 16px 24px)"></div></div><div><div class="chip">Andhra Pradesh</div><h3 style="margin:.8rem 0 .4rem">Mangalagiri Fabric</h3><p style="color:var(--color-text-muted)">Minimal stripes, soft finish, and designer-friendly yardage.</p></div><div class="price"><span>₹980 / metre</span><span>Custom cut</span></div></article>
+          <article class="card product-card"><div class="product-visual"><div class="pattern" style="background:linear-gradient(145deg, rgba(255,255,255,.25), transparent 50%), repeating-linear-gradient(135deg, rgba(122,75,43,.20) 0 10px, rgba(234,216,193,.35) 10px 20px, rgba(15,106,99,.14) 20px 30px)"></div></div><div><div class="chip">West Bengal</div><h3 style="margin:.8rem 0 .4rem">Jamdani Stole</h3><p style="color:var(--color-text-muted)">Airy weave with delicate motifs for premium gifting edits.</p></div><div class="price"><span>₹1,850</span><span>Limited batch</span></div></article>
+          <article class="card product-card"><div class="product-visual"><div class="pattern" style="background:linear-gradient(145deg, rgba(255,255,255,.22), transparent 50%), repeating-linear-gradient(135deg, rgba(15,106,99,.18) 0 7px, rgba(122,75,43,.22) 7px 14px, rgba(244,235,224,.25) 14px 21px)"></div></div><div><div class="chip">Karnataka</div><h3 style="margin:.8rem 0 .4rem">Ilkal Table Runner</h3><p style="color:var(--color-text-muted)">Structured weave adapted into modern home-living products.</p></div><div class="price"><span>₹1,240</span><span>Gift-ready</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="chip">Why it works</div>
+            <h2 style="font-size:var(--text-xl);margin-top:.8rem">A strong base for a startup pitch or portfolio showcase.</h2>
+          </div>
+          <p>You can present this as a frontend concept, convert it into a React app later, or add backend modules for inventory, checkout, seller onboarding, and admin controls.</p>
+        </div>
+        <div class="trust">
+          <article class="card"><h3 style="font-size:1.1rem;font-family:var(--font-body);margin-bottom:.5rem">Craft-led branding</h3><p style="color:var(--color-text-muted)">Warm surfaces, woven motifs, and editorial spacing keep the product premium instead of generic.</p></article>
+          <article class="card"><h3 style="font-size:1.1rem;font-family:var(--font-body);margin-bottom:.5rem">Easy to present</h3><p style="color:var(--color-text-muted)">One-page flow works well for college demos, startup decks, and GitHub portfolio projects.</p></article>
+          <article class="card"><h3 style="font-size:1.1rem;font-family:var(--font-body);margin-bottom:.5rem">Scalable sections</h3><p style="color:var(--color-text-muted)">Collections, product cards, artisan stories, and CTA blocks are ready for more categories and pages.</p></article>
+          <article class="card"><h3 style="font-size:1.1rem;font-family:var(--font-body);margin-bottom:.5rem">Dark mode included</h3><p style="color:var(--color-text-muted)">The page already supports light and dark themes with an accessible manual toggle.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="chip" style="background:rgba(255,255,255,.12);color:#fff">Next step</div>
+            <h2 style="font-size:var(--text-xl);margin:1rem 0">Publish this as a GitHub repository and extend it into a full marketplace app.</h2>
+            <p>The package below is ready to upload as a new repository. After creating a repo on GitHub, add these files and push them, or upload the ZIP directly from your system.</p>
+          </div>
+          <div style="display:grid;gap:1rem">
+            <div style="padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.05)"><strong>Create repo</strong><p style="color:rgba(250,246,240,.78)">Use a repository name like <code>handloom-marketplace</code>.</p></div>
+            <div style="padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.05)"><strong>Upload files</strong><p style="color:rgba(250,246,240,.78)">Add the HTML file from the shared project bundle and commit it.</p></div>
+            <div style="padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.14);border-radius:1rem;background:rgba(255,255,255,.05)"><strong>Enable Pages</strong><p style="color:rgba(250,246,240,.78)">Optional: publish it with GitHub Pages for a live demo link.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>Handloom Marketplace concept project — built as a clean, single-file website starter.</p>
+      <p>Made for GitHub-ready sharing and further product development.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const icons = {
+        dark: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+        light: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      };
+      const sync = () => {
+        root.setAttribute('data-theme', theme);
+        button.innerHTML = theme === 'dark' ? icons.light : icons.dark;
+        button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      sync();
+      button.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>
